@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h> 
+#include<math.h>
 
 #define TIC_TAC_TOE_ROWS 3
 #define TIC_TAC_TOE_COLUMNS 3
@@ -28,10 +29,11 @@ int chooseFromMenu()
 	int choice;
 	do
 	{
-		scanf("%d", &choice);
-		getchar();
-	}while( choice > 3 && printf("Enter valid choice \n")); 
-
+		char str[10];
+		fgets(str,10,stdin);
+		choice =atoi(str);
+	}
+	while(( choice > 3 || choice == 0) && printf("Enter valid choice \n")); 
 	return choice;
 }
 void undoTurn(char array[TIC_TAC_TOE_ROWS][TIC_TAC_TOE_COLUMNS],int value,int* player,int* turnCounter) 
